@@ -449,7 +449,7 @@ function populateAuthAccounts(){
             <div class="settingsAuthAccountRight">
                 <div class="settingsAuthAccountDetails">
                     <div class="settingsAuthAccountDetailPane">
-                        <div class="settingsAuthAccountDetailTitle">Username</div>
+                        <div class="settingsAuthAccountDetailTitle">Pseudo</div>
                         <div class="settingsAuthAccountDetailValue">${acc.displayName}</div>
                     </div>
                     <div class="settingsAuthAccountDetailPane">
@@ -458,9 +458,9 @@ function populateAuthAccounts(){
                     </div>
                 </div>
                 <div class="settingsAuthAccountActions">
-                    <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>Selected Account &#10004;' : '>Select Account'}</button>
+                    <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>Compte sélectionné &#10004;' : '>Select Account'}</button>
                     <div class="settingsAuthAccountWrapper">
-                        <button class="settingsAuthAccountLogOut">Log Out</button>
+                        <button class="settingsAuthAccountLogOut">Se Déconnecter</button>
                     </div>
                 </div>
             </div>
@@ -666,7 +666,7 @@ function resolveDropinModsForUI(){
                             <div class="settingsModDetails">
                                 <span class="settingsModName">${dropin.name}</span>
                                 <div class="settingsDropinRemoveWrapper">
-                                    <button class="settingsDropinRemoveButton" remmod="${dropin.fullName}">Remove</button>
+                                    <button class="settingsDropinRemoveButton" remmod="${dropin.fullName}">Retirer</button>
                                 </div>
                             </div>
                         </div>
@@ -1197,11 +1197,11 @@ function isPrerelease(version){
 function populateVersionInformation(version, valueElement, titleElement, checkElement){
     valueElement.innerHTML = version
     if(isPrerelease(version)){
-        titleElement.innerHTML = 'Pre-release'
+        titleElement.innerHTML = 'Pré-sortie'
         titleElement.style.color = '#ff886d'
         checkElement.style.background = '#ff886d'
     } else {
-        titleElement.innerHTML = 'Stable Release'
+        titleElement.innerHTML = 'Version Stable'
         titleElement.style.color = null
         checkElement.style.background = null
     }
@@ -1240,7 +1240,7 @@ function populateReleaseNotes(){
         },
         timeout: 2500
     }).catch(err => {
-        settingsAboutChangelogText.innerHTML = 'Failed to load release notes.'
+        settingsAboutChangelogText.innerHTML = 'Ne pas charger les notes de libération.'
     })
 }
 
@@ -1295,20 +1295,20 @@ function populateSettingsUpdateInformation(data){
         populateVersionInformation(data.version, settingsUpdateVersionValue, settingsUpdateVersionTitle, settingsUpdateVersionCheck)
         
         if(process.platform === 'darwin'){
-            settingsUpdateButtonStatus('Download from GitHub<span style="font-size: 10px;color: gray;text-shadow: none !important;">Close the launcher and run the dmg to update.</span>', false, () => {
+            settingsUpdateButtonStatus('Télécharger à partir de GitHub<span style="font-size: 10px;color: gray;text-shadow: none !important;">Fermez le lanceur et exécutez le dmg pour mettre à jour.</span>', false, () => {
                 shell.openExternal(data.darwindownload)
             })
         } else {
             settingsUpdateButtonStatus('Téléchargement..', true)
         }
     } else {
-        settingsUpdateTitle.innerHTML = 'You Are Running the Latest Version'
+        settingsUpdateTitle.innerHTML = 'Vous jouer avec la dernière version'
         settingsUpdateChangelogCont.style.display = 'none'
         populateVersionInformation(remote.app.getVersion(), settingsUpdateVersionValue, settingsUpdateVersionTitle, settingsUpdateVersionCheck)
         settingsUpdateButtonStatus('Vérifiez les mises à jour', false, () => {
             if(!isDev){
                 ipcRenderer.send('autoUpdateAction', 'checkForUpdate')
-                settingsUpdateButtonStatus('Vérifiez les mises à jour..', true)
+                settingsUpdateButtonStatus('Vérification des mises à jour..', true)
             }
         })
     }

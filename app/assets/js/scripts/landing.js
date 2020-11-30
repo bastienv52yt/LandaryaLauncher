@@ -151,7 +151,7 @@ function updateSelectedServer(serv){
     setLaunchEnabled(serv != null)
 }
 // Real text is set in uibinder.js on distributionIndexDone.
-server_selection_button.innerHTML = '\u2022 Loading..'
+server_selection_button.innerHTML = '\u2022 Chargement..'
 server_selection_button.onclick = (e) => {
     e.target.blur()
     toggleServerSelection(true)
@@ -226,7 +226,7 @@ const refreshServerStatus = async function(fade = false){
     const serv = DistroManager.getDistribution().getServer(ConfigManager.getSelectedServer())
 
     let pLabel = 'SERVER'
-    let pVal = 'OFFLINE'
+    let pVal = 'HORS-LIGNE'
 
     try {
         const serverURL = new URL('my://' + serv.getAddress())
@@ -333,7 +333,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                     'Install Manually'
                 )
                 setOverlayHandler(() => {
-                    setLaunchDetails('Preparing Java Download..')
+                    setLaunchDetails('Préparation java télécharger...')
                     sysAEx.send({task: 'changeContext', class: 'AssetGuard', args: [ConfigManager.getCommonDirectory(),ConfigManager.getJavaExecutable()]})
                     sysAEx.send({task: 'execute', function: '_enqueueOpenJDK', argsArr: [ConfigManager.getDataDirectory()]})
                     toggleOverlay(false)
@@ -380,7 +380,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
             if(m.result === true){
 
                 // Oracle JRE enqueued successfully, begin download.
-                setLaunchDetails('Downloading Java..')
+                setLaunchDetails('Téléchargement de Java...')
                 sysAEx.send({task: 'execute', function: 'processDlQueues', argsArr: [[{id:'java', limit:1}]]})
 
             } else {
@@ -444,7 +444,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                         extractListener = null
                     }
 
-                    setLaunchDetails('Java Installed!')
+                    setLaunchDetails('Java installé!')
 
                     if(launchAfter){
                         dlAsync()
@@ -489,7 +489,7 @@ function dlAsync(login = true){
 
     if(login) {
         if(ConfigManager.getSelectedAccount() == null){
-            loggerLanding.error('You must be logged into an account.')
+            loggerLanding.error('Vous devez être connecté à un compte.')
             return
         }
     }
@@ -542,27 +542,27 @@ function dlAsync(login = true){
                 case 'distribution':
                     setLaunchPercentage(20, 100)
                     loggerLaunchSuite.log('Validated distibution index.')
-                    setLaunchDetails('Loading version information..')
+                    setLaunchDetails('Informations sur la version de chargement..')
                     break
                 case 'version':
                     setLaunchPercentage(40, 100)
                     loggerLaunchSuite.log('Version data loaded.')
-                    setLaunchDetails('Validating asset integrity..')
+                    setLaunchDetails('Validation de l’intégrité des actifs...')
                     break
                 case 'assets':
                     setLaunchPercentage(60, 100)
                     loggerLaunchSuite.log('Asset Validation Complete')
-                    setLaunchDetails('Validating library integrity..')
+                    setLaunchDetails('Validation de l’intégrité de la bibliothèque..')
                     break
                 case 'libraries':
                     setLaunchPercentage(80, 100)
                     loggerLaunchSuite.log('Library validation complete.')
-                    setLaunchDetails('Validating miscellaneous file integrity..')
+                    setLaunchDetails('Validation de l’intégrité du fichier divers..')
                     break
                 case 'files':
                     setLaunchPercentage(100, 100)
-                    loggerLaunchSuite.log('File validation complete.')
-                    setLaunchDetails('Downloading files..')
+                    loggerLaunchSuite.log('Validation complète du fichier.')
+                    setLaunchDetails('Téléchargement de fichiers...')
                     break
             }
         } else if(m.context === 'progress'){
@@ -604,13 +604,13 @@ function dlAsync(login = true){
                         progressListener = null
                     }
 
-                    setLaunchDetails('Preparing to launch..')
+                    setLaunchDetails('Se préparer à lancer..')
                     break
             }
         } else if(m.context === 'error'){
             switch(m.data){
                 case 'download':
-                    loggerLaunchSuite.error('Error while downloading:', m.error)
+                    loggerLaunchSuite.error('Erreur lors du téléchargement:', m.error)
                     
                     if(m.error.code === 'ENOENT'){
                         showLaunchFailure(
@@ -651,7 +651,7 @@ function dlAsync(login = true){
                 const authUser = ConfigManager.getSelectedAccount()
                 loggerLaunchSuite.log(`Sending selected account (${authUser.displayName}) to ProcessBuilder.`)
                 let pb = new ProcessBuilder(serv, versionData, forgeData, authUser, remote.app.getVersion())
-                setLaunchDetails('Launching game..')
+                setLaunchDetails('Lancement du jeux..')
 
                 // const SERVER_JOINED_REGEX = /\[.+\]: \[CHAT\] [a-zA-Z0-9_]{1,16} joined the game/
                 const SERVER_JOINED_REGEX = new RegExp(`\\[.+\\]: \\[CHAT\\] ${authUser.displayName} joined the game`)
@@ -659,7 +659,7 @@ function dlAsync(login = true){
                 const onLoadComplete = () => {
                     toggleLaunchArea(false)
                     if(hasRPC){
-                        DiscordWrapper.updateDetails('Loading game..')
+                        DiscordWrapper.updateDetails('Chargement du jeux..')
                     }
                     proc.stdout.on('data', gameStateChange)
                     proc.stdout.removeListener('data', tempListener)
@@ -708,7 +708,7 @@ function dlAsync(login = true){
                     proc.stdout.on('data', tempListener)
                     proc.stderr.on('data', gameErrorListener)
 
-                    setLaunchDetails('Done. Enjoy the server!')
+                    setLaunchDetails('Fait. Profitez du serveur!')
 
                     // Init Discord Hook
                     const distro = DistroManager.getDistribution()
@@ -845,7 +845,7 @@ document.getElementById('newsButton').onclick = () => {
         $('#newsContainer, #newsContainer *, #lower, #lower #center *').removeAttr('tabindex')
         if(newsAlertShown){
             $('#newsButtonAlert').fadeOut(2000)
-            newsAlertShown = false
+            newsAlertShown = true
             ConfigManager.setNewsCacheDismissed(true)
             ConfigManager.save()
         }
@@ -957,7 +957,7 @@ function initNews(){
                 })
             } else if(newsArr.length === 0) {
                 // No News Articles
-                setNewsLoading(false)
+                setNewsLoading(true)
 
                 ConfigManager.setNewsCache({
                     date: null,
@@ -979,7 +979,7 @@ function initNews(){
                 const cached = ConfigManager.getNewsCache()
                 let newHash = crypto.createHash('sha1').update(lN.content).digest('hex')
                 let newDate = new Date(lN.date)
-                let isNew = false
+                let isNew = true
 
                 if(cached.date != null && cached.content != null){
 

@@ -45,10 +45,10 @@ if(!isDev){
                 settingsUpdateButtonStatus('Checking for Updates..', true)
                 break
             case 'update-available':
-                loggerAutoUpdaterSuccess.log('New update available', info.version)
+                loggerAutoUpdaterSuccess.log('Nouvelle mise à jour disponible', info.version)
                 
                 if(process.platform === 'darwin'){
-                    info.darwindownload = `https://github.com/dscalzi/HeliosLauncher/releases/download/v${info.version}/helioslauncher-setup-${info.version}.dmg`
+                    info.darwindownload = `https://github.com/bastienv52yt/LandaryaLauncher/releases/download/v${info.version}/landaryalauncher-setup-${info.version}.dmg`
                     showUpdateUI(info)
                 }
                 

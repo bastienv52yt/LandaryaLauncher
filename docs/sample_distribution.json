@@ -11,29 +11,29 @@
     "rss": "https://forum.westeroscraft.com/forum/news.2/index.rss",
     "servers": [
         {
-            "id": "WesterosCraft-1.11.2",
+            "id": "Landarya-1.8",
             "name": "Landarya Serveur",
-            "description": "Main WesterosCraft server. Connect to enter the Realm.",
-            "icon": "http://mc.westeroscraft.com/WesterosCraftLauncher/files/server-prod.png",
+            "description": "Serveur Landarya.",
+            "icon": "https://cdn.discordapp.com/attachments/483618889276719120/782764341573058600/Landarya.png",
             "version": "3.9.4",
             "address": "play.landarya.fr",
-            "minecraftVersion": "1.11.2",
+            "minecraftVersion": "1.8",
             "discord": {
                 "shortId": "Production",
-                "largeImageText": "WesterosCraft Production Server",
+                "largeImageText": "Landarya Production Server",
                 "largeImageKey": "server-prod"
             },
             "mainServer": true,
             "autoconnect": true,
             "modules": [
                 {
-                    "id": "net.minecraftforge:forge:1.11.2-13.20.1.2429",
+                    "id": "net.minecraftforge:forge-1.8-11.14.4.1563",
                     "name": "Minecraft Forge",
                     "type": "ForgeHosted",
                     "artifact": {
                         "size": 4450992,
                         "MD5": "3fcc9b0104f0261397d3cc897e55a1c5",
-                        "url": "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.11.2-13.20.1.2429/forge-1.11.2-13.20.1.2429-universal.jar"
+                        "url": "https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.8-11.14.4.1563/forge-1.8-11.14.4.1563-universal.jar"
                     },
                     "subModules": [
                         {
@@ -431,7 +431,7 @@
             "icon": "http://mc.westeroscraft.com/WesterosCraftLauncher/files/server-test.png",
             "version": "3.9.4",
             "address": "play.landarya.fr",
-            "minecraftVersion": "1.11.2",
+            "minecraftVersion": "1.8",
             "discord": {
                 "shortId": "Test Server",
                 "largeImageText": "WesterosCraft Test Server",
@@ -845,7 +845,7 @@
             "icon": "http://mc.westeroscraft.com/WesterosCraftLauncher/files/server-test.png",
             "version": "4.2.1",
             "address": "mc.westeroscraft.com:4445",
-            "minecraftVersion": "1.12.2",
+            "minecraftVersion": "1.8",
             "discord": {
                 "shortId": "1.12.2 Test Server",
                 "largeImageText": "WesterosCraft 1.12.2 Test Server",
