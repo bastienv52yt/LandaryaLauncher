@@ -15,20 +15,20 @@ The distribution index is written in JSON. The general format of the index is as
     "rss": "https://westeroscraft.com/articles/index.rss",
     "servers": [
         {
-            "id": "Example_Server",
-            "name": "WesterosCraft Example Client",
+            "id": "Landarya-1.8.9",
+            "name": "Landarya",
             "description": "Example WesterosCraft server. Connect for fun!",
             "icon": "http://mc.westeroscraft.com/WesterosCraftLauncher/files/example_icon.png",
             "version": "0.0.1",
             "address": "mc.westeroscraft.com:1337",
-            "minecraftVersion": "1.11.2",
+            "minecraftVersion": "1.8.9",
             "discord": {
                 "shortId": "Example",
                 "largeImageText": "WesterosCraft Example Server",
                 "largeImageKey": "server-example"
             },
-            "mainServer": true,
-            "autoconnect": true,
+            "mainServer": false,
+            "autoconnect": false,
             "modules": [
                 "Module Objects Here"
             ]
@@ -80,19 +80,19 @@ A URL to a RSS feed. Used for loading news.
 ```JSON
 {
     "id": "Example_Server",
-    "name": "Landarya",
-    "description": "Serveur Landarya Officiel !",
+    "name": "Landaryaa",
+    "description": "Landarya",
     "icon": "https://cdn.discordapp.com/attachments/483618889276719120/782764341573058600/Landarya.png",
     "version": "0.0.1",
     "address": "play.landarya.fr",
     "minecraftVersion": "1.8",
     "discord": {
-        "shortId": "Example",
+        "shortId": "Test",
         "largeImageText": "Landarya",
         "largeImageKey": "server-example"
     },
-    "mainServer": true,
-    "autoconnect": true,
+    "mainServer": false,
+    "autoconnect": false,
     "modules": []
 }
 ```
