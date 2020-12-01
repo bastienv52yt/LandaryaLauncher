@@ -9,10 +9,10 @@
   "servers": [
     {
       "id": "Landarya-1.8.9",
-      "name": "Landarya",
-      "description": "Landarya Running Minecraft 1.8.9 (Forge v11.14.4.1563)",
+      "name": "Landarya 1.8.9",
+      "description": "Serveur landarya officiel (play.landarya.fr)",
       "icon": null,
-      "version": "1.8.9",
+      "version": "1.0.1",
       "address": "survieeeeeee.aternos.me",
       "minecraftVersion": "1.8.9",
       "discord": {
