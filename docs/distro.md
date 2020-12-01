@@ -15,7 +15,7 @@ The distribution index is written in JSON. The general format of the index is as
     "rss": "https://westeroscraft.com/articles/index.rss",
     "servers": [
         {
-            "id": "Landarya-1.8.9",
+            "id": "Landarya-1.8.95",
             "name": "Landarya",
             "description": "Example WesterosCraft server. Connect for fun!",
             "icon": "http://mc.westeroscraft.com/WesterosCraftLauncher/files/example_icon.png",
