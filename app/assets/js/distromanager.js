@@ -537,7 +537,7 @@ exports.pullRemote = function(){
         return exports.pullLocal()
     }
     return new Promise((resolve, reject) => {
-        const distroURL = 'https://download1491.mediafire.com/xmgwdvlkensg/t8dk6wvo2kn2ecf/distribution.json'
+        const distroURL = 'https://download1521.mediafire.com/xxssrig9wusg/u33gv39n5vebj0s/distribution.json'
         //const distroURL = 'https://gist.githubusercontent.com/dscalzi/53b1ba7a11d26a5c353f9d5ae484b71b/raw/'
         const opts = {
             url: distroURL,

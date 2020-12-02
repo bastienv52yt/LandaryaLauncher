@@ -1,9 +1,9 @@
 {
   "name": "landaryalauncher",
-  "version": "1.8.0",
+  "version": "1.0.0",
   "productName": "Landarya Launcher",
   "description": "Launcher de Landarya",
-  "author": "Daniel Scalzi (https://github.com/dscalzi/)",
+  "author": "Broussen (https://github.com/dscalzi/)",
   "license": "UNLICENSED",
   "homepage": "https://github.com/bastienv52yt/LandaryaLauncher",
   "bugs": {

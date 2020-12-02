@@ -9,11 +9,11 @@
   "servers": [
     {
       "id": "Landarya-1.8.9",
-      "name": "Landarya 1.8.9",
-      "description": "Serveur landarya officiel (play.landarya.fr)",
+      "name": "Landarya",
+      "description": "Serveur Landarya officiel",
       "icon": null,
-      "version": "1.0.1",
-      "address": "play.funcraft.net",
+      "version": "1.0.0",
+      "address": "play.landarya.fr",
       "minecraftVersion": "1.8.9",
       "discord": {
         "shortId": "<FILL IN OR REMOVE DISCORD OBJECT>",
