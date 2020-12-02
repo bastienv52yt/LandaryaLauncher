@@ -1141,9 +1141,9 @@ function populateJavaExecDetails(execPath){
         if(v.valid){
             const vendor = v.vendor != null ? ` (${v.vendor})` : ''
             if(v.version.major < 9) {
-                settingsJavaExecDetails.innerHTML = `Selected: Java ${v.version.major} Update ${v.version.update} (x${v.arch})${vendor}`
+                settingsJavaExecDetails.innerHTML = `Selectionné: Java ${v.version.major} Update ${v.version.update} (x${v.arch})${vendor}`
             } else {
-                settingsJavaExecDetails.innerHTML = `Selected: Java ${v.version.major}.${v.version.minor}.${v.version.revision} (x${v.arch})${vendor}`
+                settingsJavaExecDetails.innerHTML = `Selectionné: Java ${v.version.major}.${v.version.minor}.${v.version.revision} (x${v.arch})${vendor}`
             }
         } else {
             settingsJavaExecDetails.innerHTML = 'Invalid Selection'
@@ -1197,7 +1197,7 @@ function isPrerelease(version){
 function populateVersionInformation(version, valueElement, titleElement, checkElement){
     valueElement.innerHTML = version
     if(isPrerelease(version)){
-        titleElement.innerHTML = 'Pré-sortie'
+        titleElement.innerHTML = 'Pré-Version'
         titleElement.style.color = '#ff886d'
         checkElement.style.background = '#ff886d'
     } else {
@@ -1270,12 +1270,12 @@ const settingsUpdateActionButton   = document.getElementById('settingsUpdateActi
  * Update the properties of the update action button.
  * 
  * @param {string} text The new button text.
- * @param {boolean} disabled Optional. Disable or enable the button
+ * @param {boolean} enable Optional. Disable or enable the button
  * @param {function} handler Optional. New button event handler.
  */
 function settingsUpdateButtonStatus(text, disabled = false, handler = null){
     settingsUpdateActionButton.innerHTML = text
-    settingsUpdateActionButton.disabled = disabled
+    settingsUpdateActionButton.disabled = enable
     if(handler != null){
         settingsUpdateActionButton.onclick = handler
     }
